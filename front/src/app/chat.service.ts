@@ -37,10 +37,9 @@ export class ChatService {
         this.socket.emit('message', message)
     }
 
-    addUserToList(userName: string) {
-        console.log('socket emit add user: ', userName);
-        this.socket.emit('add user', userName);
-    }
+    // addUserToList(userName: string) {
+    //     this.socket.emit('add user', userName);
+    // }
 
     // onUserJoined = () => new Observable((observer) => {
     //     this.socket.on('user joined', (userName) => {

@@ -27,7 +27,6 @@ export class AppComponent {
   ngOnInit() {
     this.chatService.connect();
     this.chatService.onNewMessage().subscribe((message: Message) => {
-      console.log('listening to messages', message)
       this.messages.unshift(message);
 
       if (message.action === 0) {
@@ -50,10 +49,8 @@ export class AppComponent {
    * Click handler for new user enter button
    */
   onUserEnter(form: NgForm) {
-    console.log('Let me in!', this.hasGivenName);
     this.user.name = form.value.username;
     this.user.id = this.createRandomId();
-    console.log('user: ', this.user.name);
     this.userJoined(this.user);
     this.hasGivenName = true;
   }
