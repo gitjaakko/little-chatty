@@ -1,0 +1,227 @@
+@import "../styles.scss";
+
+.container {
+    display: grid;
+    grid-template-rows: 140px repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 5px;
+    min-height: 100vh;
+    z-index: 1;
+    background-image: linear-gradient(
+        to top right,
+        $sunset-4,
+        $sunset-5
+    );
+    font-family: 'Alata', sans-serif;
+}
+
+.backdrop {
+    height: 100%;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    z-index: 1;
+    clip-path: ellipse(100% 61% at 35% 54%);
+    background-color: black;
+}
+
+.header {
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    border-bottom: 4px solid;
+    border-image: linear-gradient( to right ,$sunset-1, $sunset-6) 27;
+
+    &__iconContainer {
+        padding-left: 5px;
+        margin-bottom: 6px;
+    }
+    
+    &__icon {
+        fill: $sunset-4;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: bold;
+        align-self: center;
+        padding: 0 10px;
+        background: linear-gradient( to right ,$sunset-4, $sunset-5);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+
+.chatCenter {
+    grid-column: 2 / 6;
+    grid-row: 2 / 6;
+    z-index: 2;
+    background-color: inherit;
+    border-radius: 10px;
+    padding: 10px;
+
+    display: grid;
+    grid-template-rows: repeat(3, 1fr) 30px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 5px 5px;
+
+    &__whoIs {
+        grid-row: 2 / 3;
+        grid-column: 2 / 6;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &InputContainer {
+            display: flex;
+            justify-content: space-between;
+            // align-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            &--name {
+                padding: 15px;
+                border: none;
+                border-radius: 10px;
+                background-color: white;
+                font-family: 'Montserrat', sans-serif;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+    
+            &--enter {
+                height: 96%;
+                margin-right: 2px;
+                padding: 10px;
+                border: none;
+                font-family: 'Alata', sans-serif;
+                font-size: 20px;
+                border-radius: 10px;
+                color: white;
+                background-image: linear-gradient(
+                    to right,
+                    $sunset-3,
+                    $sunset-1
+                );
+            }
+        }
+
+        &--label {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            background: linear-gradient( to right, $sunset-1, $sunset-6);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+    }
+
+    &__participantsContainer {
+        grid-row: 1 / 5;
+        grid-column: 1 / 2;
+        color: $sunset-4;
+        padding: 15px;
+    }
+
+    &__messagesContainer {
+        grid-row: 1 / 4;
+        grid-column: 2 / 7;
+
+        display: flex;
+        flex-direction: column-reverse;
+
+        overflow-y: hidden;
+        padding: 15px;
+
+        font-family: 'Montserrat', sans-serif;
+        color: $sunset-1;
+        font-size: 18px;
+
+        border: 3px solid;
+        border-image: 
+          linear-gradient(
+            to top, 
+            $sunset-5, 
+            rgba(0, 0, 0, 0)
+          ) 1 100%;
+
+          &--messages {
+              display: flex;
+              justify-content: flex-start;
+          }
+
+          &--serverNote {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          &--user {
+              color: $sunset-5;
+              padding-right: 5px;
+              &Message {
+                color: $sunset-6;
+
+                &timestamp {
+                    margin-left: auto;
+                    margin-top: auto;
+                    color: lighten($sunset-2, 20);
+                    font-size: 12px;
+                }
+              }
+          }
+    }
+
+    &__inputContainer {
+        grid-row: 4 / 5;
+        grid-column: 2 / -1 ;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        background-color: white;
+        border-radius: 15px;
+
+        &--input {
+            padding: 5px 5px 5px 10px;
+            width: 90%;
+            border: none;
+            border-radius: inherit;
+            color: $sunset-3;
+            font-family: 'Montserrat', sans-serif;
+            background-color: inherit;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &--send {
+            font-family: 'Montserrat', sans-serif;
+            border-radius: inherit;
+            border: none;
+            color: $sunset-3;
+            width: 9%;
+            font-weight: bold;
+            background-image: linear-gradient(
+                to right,
+                $sunset-1,
+                $sunset-6
+            );
+            padding: 2px 2px;
+            margin: 2px;
+
+            &:focus {
+                outline: none;
+            }
+
+        }
+    }
+}
